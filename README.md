@@ -12,3 +12,5 @@ https://github.com/JabRef/jabref/blob/master/CONTRIBUTING.md
 * Once that is done, we will start by fixing issues registered on the [beginners section]( https://github.com/JabRef/jabref/labels/beginner) to get a flavor of the code, for finally working in issues with [more impact]( https://github.com/JabRef/jabref/labels/help-wanted) while following the [FAQ Guide]( http://help.jabref.org/en/FAQcontributing).
 
 //Changes
+
+//Changes by Percy
