@@ -10,3 +10,5 @@ https://github.com/JabRef/jabref/blob/master/CONTRIBUTING.md
 * We plan on using the [guide to pull request]( https://github.com/blog/1943-how-to-write-the-perfect-pull-request) for requesting the developers a branch pull as specified in the guide.  
 * Then we’ll start by reading the [Coding Guide]( https://github.com/JabRef/jabref/wiki/Code-Howtos) and adding a CHANGELOG.md file as specified in the guide.  
 * Once that is done, we will start by fixing issues registered on the [beginners section]( https://github.com/JabRef/jabref/labels/beginner) to get a flavor of the code, for finally working in issues with [more impact]( https://github.com/JabRef/jabref/labels/help-wanted) while following the [FAQ Guide]( http://help.jabref.org/en/FAQcontributing).
+
+//Changes
