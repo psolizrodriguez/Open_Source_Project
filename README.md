@@ -14,3 +14,39 @@ https://github.com/JabRef/jabref/blob/master/CONTRIBUTING.md
 ## Summary
 
 We will be working on the JabRef project, which is an open source bibliography reference manager. In short, this application gives the user the ability to add, search, and sort all their references in one place. We plan to contribute to the project by first following the contributing guide on creating a formal pull request and setting up our local workspace using the Eclipse IDE. Once that is done we will need to edit their CHANGELOG.md file in order to accurately document the changes we intend to make. After this is setup and we have created a fork to begin working on the project, we will turn our attention to the beginners section to become familiar with how the code works—this is also the same section that will allow us to contribute to their code more quickly because we will be working on existing bugs in the software. From there, if time permits, we can begin working on issues that have more impact.
+
+##Plan of Action
+###1.Fork Repository and add team members
+
+###2.Setting up a local workspace
+
+####a.Download the code
+####b.Built the Code
+####c.Get the Application running from your IDE
+
+###3.Understanding the Application
+####a.Become an Advance User
+####b.Become Tester of the Application
+####c.Try to reproduce and understand current bugs
+####d.Give sense to the Application
+###4.Identifying a desired contribution
+####a.Issue Tracker
+####b.Custom Functionality
+####c.Translation
+###5.Examining the code
+####a.Understanding the Structure (Packages and Classes)
+####b.Type of Architecture
+####c.Used Repositories
+####d.Main Classes and Inheritance
+###6.Implementing your contribution
+####a.Identify Involved Key Points on the solution
+####b.Define Structure
+####c.Reuse Code
+####d.Test Cases
+###7.Applying Required Project Standards
+####a.Reformatting
+####b.Apply Coding Standards
+####c.Add Comments
+###8.Creating a Pull Request
+This
+###9.Recording a Screen Cast
