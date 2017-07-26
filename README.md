@@ -27,20 +27,20 @@ Once we figured out what feature we wanted to add to JabRef, we thought it would
 We started by reading the [High Level Documentation](https://github.com/JabRef/jabref/wiki/High-Level-Documentation) and paying attention to two main things: Package Structure and the Most Important Classes and their Relation.
 After doing so we followed the path by debugging , from the class containing the main method to two of the classes that where involved in the new feature we wanted to create:
 ![JafRef Classes](http://i.imgur.com/0cnK66S.jpg)
-#### * JafRefFrame
+* **JafRefFrame**  
 Contains all the components being displayed while the application runs.
-#### * EntryEditor
+* **EntryEditor**  
 Container that extends from JPanel and implements EntryContainer, this allows it to create the controls being used over the toolbar and the possible action over the entries
-#### * SpellCheckerAction
+* **SpellCheckerAction**  
 Inner class of EntryEditor that provides the functionality for the spell checking tool over the different fields of the entry.
 ### 5. Implementing our contribution
 ![Class Diagram](http://i.imgur.com/aTW308E.jpg)
 #### A. Define Structure
 We had to adapt our design to the way JabRef works and came up with the following classes:  
-* JazzySpellChecker: Contains the needed methods to use the Jazzy libraries inside of JabRef and perform the spell check on the entries.  
-* SpellCheckerDialog: Dialog that helps performing the corrections task on the GUI of JabRef for each of the present Fields of the current entries.  
-* SpellCheckerAction: A class which extends from AbstracAction and help us add the needed option on the toolbar of the entries.  
-* SpellCheckerRecord: Simple POJO (Plain Old Java Object) that helps us store one set of words to be corrected or ignored by the SpellCheckerDialog.  
+* **JazzySpellChecker:** Contains the needed methods to use the Jazzy libraries inside of JabRef and perform the spell check on the entries.  
+* **SpellCheckerDialog:** Dialog that helps performing the corrections task on the GUI of JabRef for each of the present Fields of the current entries.  
+* **SpellCheckerAction:** A class which extends from AbstracAction and help us add the needed option on the toolbar of the entries.  
+* **SpellCheckerRecord:** Simple POJO (Plain Old Java Object) that helps us store one set of words to be corrected or ignored by the SpellCheckerDialog.  
 #### B. Code Reuse
 In the following example we are creating our own class of type AbstracAction. This way we can reuse all the code written behind every present button on the toolbar of each of the entries.
 ```
