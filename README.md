@@ -73,6 +73,8 @@ This JUnit Test Class takes care of testing the Jazzy correct initialization and
 #### D. Spell Checker In Action
 ![Spell Checker](http://i.imgur.com/RSYsh3q.png)
 
+As an example, you can see here we wanted to add the 1987 book by Stephen King titled Misery to our references manager. When we mispelled "mysery" the spell checker suggestion box identified that and suggested "misery" instead.
+
 ### 7. Applying Required Project Standards
 * **Reformatting**
 * **Applying Coding Standards**
