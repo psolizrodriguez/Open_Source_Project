@@ -24,7 +24,7 @@ Once we figured out what feature we wanted to add to JabRef, we thought it would
 ![Imgur](http://i.imgur.com/NT4ggTu.png)                                               
 ### 4. Examining the code  
 ![Most Important Classes and their Relation](https://yuml.me/20975ef4)  
-We started by reading the [High Level Documentation](https://github.com/JabRef/jabref/wiki/High-Level-Documentation) and paying attention to two main things: Package Structure and the Most Important Classes and their Relation.
+We started by reading the [High Level Documentation](https://github.com/JabRef/jabref/wiki/High-Level-Documentation) and paying attention to two main things: package structure and the most important classes and their relation.
 After doing so we followed the path by debugging , from the class containing the main method to two of the classes that where involved in the new feature we wanted to create:
 ![JafRef Classes](http://i.imgur.com/0cnK66S.jpg)
 * **JafRefFrame**  
@@ -66,13 +66,13 @@ In the following example we are creating our own class of type AbstracAction. Th
     }
 ```
 #### C. Test Cases
-* SpellCheckerDialogTest
+* **SpellCheckerDialogTest**  
 This JUnit Test Class takes care of testing the: Ignore, Replace, Cancel and Select options from the SpellCheckerDialog class.
-* EntryEditorSpellCheckerTest
+* **EntryEditorSpellCheckerTest**  
 This JUnit Test Class takes care of testing the Jazzy correct initialization and Its correct functionality inside of the EntryEditorSpellChecker class.
-### 7.Applying Required Project Standards
-* Reformatting
-* Apply Coding Standards
-* Add Comments
+### 7. Applying Required Project Standards
+* **Reformatting**
+* **Apply Coding Standards**
+* **Add Comments**
 ### 8. Creating a Pull Request
 ### 9. Recording a Screen Cast
