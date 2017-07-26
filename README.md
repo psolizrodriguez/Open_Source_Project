@@ -35,13 +35,13 @@ Container that extends from JPanel and implements EntryContainer, this allows it
 Inner class of EntryEditor that provides the functionality for the spell checking tool over the different fields of the entry.
 ### 5. Implementing our contribution
 ![Class Diagram](http://i.imgur.com/aTW308E.jpg)
-#### a. Define Structure
+#### A. Define Structure
 We had to adapt our design to the way JabRef works and came up with the following classes:  
 * JazzySpellChecker: Contains the needed methods to use the Jazzy libraries inside of JabRef and perform the spell check on the entries.  
 * SpellCheckerDialog: Dialog that helps performing the corrections task on the GUI of JabRef for each of the present Fields of the current entries.  
 * SpellCheckerAction: A class which extends from AbstracAction and help us add the needed option on the toolbar of the entries.  
 * SpellCheckerRecord: Simple POJO (Plain Old Java Object) that helps us store one set of words to be corrected or ignored by the SpellCheckerDialog.  
-#### b. Code Reuse
+#### B. Code Reuse
 In the following example we are creating our own class of type AbstracAction. This way we can reuse all the code written behind every present button on the toolbar of each of the entries.
 ```
     private class SpellCheckerAction extends AbstractAction 
@@ -65,14 +65,14 @@ In the following example we are creating our own class of type AbstracAction. Th
         }
     }
 ```
-####c. Test Cases
-##### * SpellCheckerDialogTest
+#### C. Test Cases
+* SpellCheckerDialogTest
 This JUnit Test Class takes care of testing the: Ignore, Replace, Cancel and Select options from the SpellCheckerDialog class.
-##### * EntryEditorSpellCheckerTest
+* EntryEditorSpellCheckerTest
 This JUnit Test Class takes care of testing the Jazzy correct initialization and Its correct functionality inside of the EntryEditorSpellChecker class.
-###7.Applying Required Project Standards
-####a.Reformatting
-####b.Apply Coding Standards
-####c.Add Comments
-###8.Creating a Pull Request
-###9.Recording a Screen Cast
+### 7.Applying Required Project Standards
+* Reformatting
+* Apply Coding Standards
+* Add Comments
+### 8. Creating a Pull Request
+### 9. Recording a Screen Cast
