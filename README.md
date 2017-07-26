@@ -70,9 +70,12 @@ In the following example we are creating our own class of type AbstracAction. Th
 This JUnit Test Class takes care of testing the: Ignore, Replace, Cancel and Select options from the SpellCheckerDialog class.
 * **EntryEditorSpellCheckerTest**  
 This JUnit Test Class takes care of testing the Jazzy correct initialization and Its correct functionality inside of the EntryEditorSpellChecker class.
+#### D. Spell Checker In Action
+![Spell Checker](http://i.imgur.com/RSYsh3q.png)
+
 ### 7. Applying Required Project Standards
 * **Reformatting**
-* **Apply Coding Standards**
-* **Add Comments**
+* **Applying Coding Standards**
+* **Adding Comments**
 ### 8. Creating a Pull Request
 ### 9. Recording a Screen Cast
