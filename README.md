@@ -146,7 +146,31 @@ Imagine you want to test the method format(String value) in the class BracesForm
 - Placing: all tests should be placed in a class named classTest, e.g. BracesFormatterTest.
 - Naming: the name should be descriptive enough to describe the whole test. Use the format methodUnderTest_ expectedBehavior_context (without the dashes). So for example formatRemovesDoubleBracesAtBeginning. Try to avoid naming the tests with a test prefix since this information is already contained in the class name. Moreover, starting the name with test leads often to inferior test names (see also the Stackoverflow discussion about naming).
 - Test only one thing per test: tests should be short and test only one small part of the method.
+```  
+    @Before
+    public void setUp() throws Exception {
+        reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/english.0")));
+        dictionary = new SpellDictionaryHashMap(reader);
+        spellChecker = new SpellChecker(dictionary);
+        jazzySpellChecker = new JazzySpellChecker();
+        currentFields = new LinkedHashMap<>();
+        currentFields.put("author", "teh");
+    }
 
+    @Test
+    public void getSuggestionsReturnsCorrectListOfWords() {
+        String[] expectedValues = {"tea", "the", "ten"};
+        List<Word> vectorSuggestedValues = spellChecker.getSuggestions("teh", 1);
+        String[] suggestedValues = new String[vectorSuggestedValues.size()];
+        for (int i = 0; i < vectorSuggestedValues.size(); i++) {
+            suggestedValues[i] = vectorSuggestedValues.get(i).getWord();
+        }
+        //Verifying size of suggestions
+        Assert.assertEquals(expectedValues.length, suggestedValues.length);
+        //Verifying content of suggestions
+        Assert.assertArrayEquals(expectedValues, suggestedValues);
+    }
+```  
 #### D. Adding Comments
 ### 8. Creating a Pull Request
 ### 9. Recording a Screen Cast
