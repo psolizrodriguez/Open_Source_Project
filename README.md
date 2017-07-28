@@ -304,5 +304,5 @@ link: <https://github.com/psolizrodriguez/Open_Source_Project>
 
 ### 9. Recording a Screen Cast
 
-![![JabRef Spell Check Contribution Report](http://i.imgur.com/ZJc4JT6.png)](https://www.youtube.com/watch?v=H0sv3_mYFho)
+[![JabRef Spell Check Contribution Report](http://i.imgur.com/ZJc4JT6.png)](https://www.youtube.com/watch?v=H0sv3_mYFho)
 
