@@ -80,8 +80,8 @@ As an example, you can see here we wanted to add the 1987 book by Stephen King t
 ### 7. Applying Required Project Standards
 
 Some of the aspects JabRef developers were suggesting at the [Code's how to](https://github.com/JabRef/jabref/wiki/Code-Howtos) requires us to:  
-#### Try not to abbreviate names of variables, classes or methods
-#### Use lowerCamelCase instead of snake_case
+* Try not to abbreviate names of variables, classes or methods
+* Use lowerCamelCase instead of snake_case
 '''
     private static final long serialVersionUID = 1L;
     private final JPanel contentPanel = new JPanel();
@@ -95,9 +95,9 @@ Some of the aspects JabRef developers were suggesting at the [Code's how to](htt
     JLabel lblNewLabel;
 '''
 * **Throwing and Catching Exceptions**
-* All Exceptions we throw should be or extend JabRefException; This is especially important if the message stored in the Exception should be shown to the user. JabRefException has already implemented the getLocalizedMessage() method which should be used for such cases (see details below!).
-* Catch and wrap all API exceptions (such as IOExceptions) and rethrow them
-Example:
+- All Exceptions we throw should be or extend JabRefException; This is especially important if the message stored in the Exception should be shown to the user. JabRefException has already implemented the getLocalizedMessage() method which should be used for such cases (see details below!).  
+- Catch and wrap all API exceptions (such as IOExceptions) and rethrow them.  
+Example:  
 '''
 try {
     // ...
@@ -105,9 +105,9 @@ try {
     throw new JabRefException("Something went wrong...", 
          Localization.lang("Something went wrong...", ioe);
 }'''
-* Never, ever throw and catch Exception or Throwable
-* Errors should only be logged when they are finally caught (i.e., logged only once). See Logging for details.
-* If the Exception message is intended to be shown to the User in the UI (see below) provide also a localizedMessage (see JabRefException).
+- Never, ever throw and catch Exception or Throwable.  
+- Errors should only be logged when they are finally caught (i.e., logged only once). See Logging for details.  
+- If the Exception message is intended to be shown to the User in the UI (see below) provide also a localizedMessage (see JabRefException).  
 '''
     public JazzySpellChecker() {
         try {
