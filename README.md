@@ -16,16 +16,16 @@ We will be working on the JabRef project, which is an open source bibliography r
 ### 1. Setting-Up the Development Environment  
 Our first step was to fork the repository from the JabRef team. Once this was complete, we decided that it would be easier for us to work as a team on our spell checking feature if one of us added the other as a contributor to their forked repository from JabRef. This workflow method allowed us to contribute to the same feature and made it easier to manage the changes we each worked on. In addition, and if the JabRef team accepts our changes, it will make it easier to pull those changes back into their code.  
   
-The JabRef team provided some tips for setting up our local workspace, which can be found here: <https://github.com/JabRef/jabref/wiki/Guidelines-for-setting-up-a-local-workspace>. We decided to use Eclipse for this project and followed their guidelines for setting up our workspace and used gradle to build the project. Once the workspace was setup, we were ready to begin going through the code to gain a better understanding of how it worked.  
+The JabRef team provided some tips for setting up our local workspace, which can be found here: <https://github.com/JabRef/jabref/wiki/Guidelines-for-setting-up-a-local-workspace>. We decided to use Eclipse for this project and followed their guidelines for setting up our workspace and used Gradle to build the project. Once the workspace was setup, we were ready to begin going through the code to gain a better understanding of how it worked.  
 ### 2. Understanding The Application  
-With this being the first open source project that each of us has ever contributed to, it was a great challenge and learning experience to not only use github's fork and branch workflow correctly but to also understand someone else's code, especially one as large and complex as JabRef. After importing and setting up the project in our IDE, the next few days were dedicated to just going through the code to gain a deeper understanding and familiarity with how the application was working. Before we began working on the code in our IDE, we each downloaded their standalone applicaiton to gain a better understanding from the user standpoint of how JabRef is supposed to work. It was during these "user testing" sessions that we came up with an idea for the feature we wanted to implement--and also after reviewing the issue tracker JabRef setup on their github page and realizing there was no one working on the idea we had in mind.  
+With this being the first open source project that each of us has ever contributed to, it was a great challenge and learning experience to not only use Github's fork and branch workflow correctly but to also understand someone else's code, especially one as large and complex as JabRef. After importing and setting up the project in our IDE, the next few days were dedicated to just going through the code to gain a deeper understanding and familiarity with how the application was working. Before we began working on the code in our IDE, we each downloaded their standalone application to gain a better understanding from the user standpoint of how JabRef is supposed to work. It was during these "user testing" sessions that we came up with an idea for the feature we wanted to implement--and also after reviewing the issue tracker JabRef setup on their Github page and realizing there was no one working on the idea we had in mind. 
 ### 3. Identifying a desired contribution  
 Once we figured out what feature we wanted to add to JabRef, we thought it would be best to look for a spell checker API that we could plug into the application and begin to configure. The spell checking API that as used for this project is called Jazzy, a link to the website can be found here: [Jazzy](http://jazzy.sourceforge.net/). We decided that as a first version of the spell checker system we would create it to only be used in the "Required Fields" section of the application--this is where the user enters information about the source they're using, such as book title or author name. See this image as an example: 
 ![Imgur](http://i.imgur.com/NT4ggTu.png)                                               
 ### 4. Examining the code  
 ![Most Important Classes and their Relation](https://yuml.me/20975ef4)  
 We started by reading the [High Level Documentation](https://github.com/JabRef/jabref/wiki/High-Level-Documentation) and paying attention to two main things: package structure and the most important classes and their relation.
-After doing so we followed the path by debugging , from the class containing the main method to two of the classes that where involved in the new feature we wanted to create:
+After doing so we followed the path by debugging, from the class containing the main method to two of the classes that where involved in the new feature we wanted to create:
 ![JafRef Classes](http://i.imgur.com/0cnK66S.jpg)
 * **JafRefFrame**  
 Contains all the components being displayed while the application runs.
@@ -75,7 +75,7 @@ This JUnit Test Class takes care of testing the Jazzy correct initialization and
 #### D. Spell Checker In Action
 ![Spell Checker](http://i.imgur.com/RSYsh3q.png)
 
-As an example, you can see here we wanted to add the 1987 book by Stephen King titled Misery to our references manager. When we mispelled "mysery" the spell checker suggestion box identified that and suggested "misery" instead.
+As an example, you can see here we wanted to add the 1987 book by Stephen King titled Misery to our references manager. When we misspelled "mysery" the spell checker suggestion box identified that and suggested "misery" instead.
 
 ### 7. Applying Required Project Standards
 
@@ -270,4 +270,38 @@ public class JazzySpellChecker implements SpellCheckAbstract {
 }
 ```  
 ### 8. Creating a Pull Request
+
+Title: JabRef Spell Checker
+Head: We need to know the name of the branch where our changes are implemented
+Base: We need to know the name of the branch we want our changes pulled into
+
+Body:
+
+My teammate and I are both graduate software engineering students at Loyola University Chicago our names are Tyree and Percy. We were enrolled in an open source computing class and decided to work with the JabRef repository as our final project for the course. Both of us thought it was an intersting project to begin learning about how to contribute to open source software and documentation. The purpose of this pull request is to add a spell checking feature to the required text fields in JabRef. With this spell checking feature implemented, users will have the ability to ignore a word suggestion, replace a word suggestion, or cancel the spell checking feature entirely. We thought this could be a useful feature to add since sometimes people may make mistakes in any number of the required text fields for a given reference, and correct spelling becomes especially important when the user needs to search many entries in their reference list.
+
+In order to use this feature the user needs to click on the spell checking icon located in the left toolbar under the "Change entry type" button. The button has a capital "A" with a check symbol directly underneath it, see example below:
+
+![Imgur](http://i.imgur.com/YgtSogz.png)
+
+Once the user has entered information in any of the text fields, they can press the spell check icon and it will begin looking through all the text fields and make suggestions for any words that might be misspelled.  See below for an example:
+
+
+For this example, I decided to input the novel by Stephen King titled Misery. In the first screenshot you can see that the spell checker is looking at the author field first and giving some spelling suggestions based on what was entered.  The spell checker first checks the first name of the author and then moves onto the author's last name (indicated in the second image) before completing the spell check of this field. 
+
+![Imgur](http://i.imgur.com/mDNjBre.png)
+
+![Imgur](http://i.imgur.com/D6za2kI.png)
+
+
+For the sake of this example I skipped over a few fields to show how it handles a misspelled word. As you can see from the last image, the word "Misery" is spelled incorrectly in the text field with the spelling of "Mysery." The spell checker correctly identifies "Mysery" as a misspelled word and suggests the correct spelling of the word.
+
+![Imgur](http://i.imgur.com/4rmREhE.png)
+
+
+Thank you very much for taking the time to review and consider our pull request. My teammate and I learned a lot about working with the open source community through the JabRef project. Any feedback or suggestions about our code or the new spell checking feature would be welcomed and greatly appreciated. For more information about the changes we made to the project you can visit this webpage:
+
+link: <https://github.com/psolizrodriguez/Open_Source_Project>
+
+
+
 ### 9. Recording a Screen Cast
