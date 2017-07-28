@@ -269,38 +269,25 @@ public class JazzySpellChecker implements SpellCheckAbstract {
 
 }
 ```  
-### 8. Creating a Pull Request
-
-Title: JabRef Spell Checker
-Head: We need to know the name of the branch where our changes are implemented
-Base: We need to know the name of the branch we want our changes pulled into
-
-Body:
-
-My teammate and I are both graduate software engineering students at Loyola University Chicago our names are Tyree and Percy. We were enrolled in an open source computing class and decided to work with the JabRef repository as our final project for the course. Both of us thought it was an intersting project to begin learning about how to contribute to open source software and documentation. The purpose of this pull request is to add a spell checking feature to the required text fields in JabRef. With this spell checking feature implemented, users will have the ability to ignore a word suggestion, replace a word suggestion, or cancel the spell checking feature entirely. We thought this could be a useful feature to add since sometimes people may make mistakes in any number of the required text fields for a given reference, and correct spelling becomes especially important when the user needs to search many entries in their reference list.
-
-In order to use this feature the user needs to click on the spell checking icon located in the left toolbar under the "Change entry type" button. The button has a capital "A" with a check symbol directly underneath it, see example below:
-
-![Imgur](http://i.imgur.com/YgtSogz.png)
-
-Once the user has entered information in any of the text fields, they can press the spell check icon and it will begin looking through all the text fields and make suggestions for any words that might be misspelled.  See below for an example:
-
-
+### 8. Creating a Pull Request  
+* **Title**  
+JabRef Spell Checker  
+* **Head**  
+We need to know the name of the branch where our changes are implemented  
+* **Base**  
+We need to know the name of the branch we want our changes pulled into  
+* **Body**  
+My teammate and I are both graduate software engineering students at Loyola University Chicago our names are Tyree and Percy. We were enrolled in an open source computing class and decided to work with the JabRef repository as our final project for the course. Both of us thought it was an intersting project to begin learning about how to contribute to open source software and documentation. The purpose of this pull request is to add a spell checking feature to the required text fields in JabRef. With this spell checking feature implemented, users will have the ability to ignore a word suggestion, replace a word suggestion, or cancel the spell checking feature entirely. We thought this could be a useful feature to add since sometimes people may make mistakes in any number of the required text fields for a given reference, and correct spelling becomes especially important when the user needs to search many entries in their reference list.  
+In order to use this feature the user needs to click on the spell checking icon located in the left toolbar under the "Change entry type" button. The button has a capital "A" with a check symbol directly underneath it, see example below:  
+![Imgur](http://i.imgur.com/YgtSogz.png)  
+Once the user has entered information in any of the text fields, they can press the spell check icon and it will begin looking through all the text fields and make suggestions for any words that might be misspelled.  See below for an example:  
 For this example, I decided to input the novel by Stephen King titled Misery. In the first screenshot you can see that the spell checker is looking at the author field first and giving some spelling suggestions based on what was entered.  The spell checker first checks the first name of the author and then moves onto the author's last name (indicated in the second image) before completing the spell check of this field. 
-
-![Imgur](http://i.imgur.com/mDNjBre.png)
-
-![Imgur](http://i.imgur.com/D6za2kI.png)
-
-
-For the sake of this example I skipped over a few fields to show how it handles a misspelled word. As you can see from the last image, the word "Misery" is spelled incorrectly in the text field with the spelling of "Mysery." The spell checker correctly identifies "Mysery" as a misspelled word and suggests the correct spelling of the word.
-
-![Imgur](http://i.imgur.com/4rmREhE.png)
-
-
-Thank you very much for taking the time to review and consider our pull request. My teammate and I learned a lot about working with the open source community through the JabRef project. Any feedback or suggestions about our code or the new spell checking feature would be welcomed and greatly appreciated. For more information about the changes we made to the project you can visit this webpage:
-
-link: <https://github.com/psolizrodriguez/Open_Source_Project>
+![Imgur](http://i.imgur.com/mDNjBre.png)  
+![Imgur](http://i.imgur.com/D6za2kI.png)  
+For the sake of this example I skipped over a few fields to show how it handles a misspelled word. As you can see from the last image, the word "Misery" is spelled incorrectly in the text field with the spelling of "Mysery." The spell checker correctly identifies "Mysery" as a misspelled word and suggests the correct spelling of the word.  
+![Imgur](http://i.imgur.com/4rmREhE.png)  
+Thank you very much for taking the time to review and consider our pull request. My teammate and I learned a lot about working with the open source community through the JabRef project. Any feedback or suggestions about our code or the new spell checking feature would be welcomed and greatly appreciated. For more information about the changes we made to the project you can visit this webpage:  
+link: <https://github.com/psolizrodriguez/Open_Source_Project>  
 
 ### 9. Recording a Screen Cast
 
