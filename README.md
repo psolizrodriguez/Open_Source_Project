@@ -175,10 +175,7 @@ No_Errors_Spell_Check_Word=No Errors Found!
 ```  
 #### C. Test Cases  
 ![Tests are green](http://i.imgur.com/j600qQM.png)  
-Imagine you want to test the method format(String value) in the class BracesFormatter which removes double braces in a given string.
-- Placing: all tests should be placed in a class named classTest, e.g. BracesFormatterTest.
-- Naming: the name should be descriptive enough to describe the whole test. Use the format methodUnderTest_ expectedBehavior_context (without the dashes). So for example formatRemovesDoubleBracesAtBeginning. Try to avoid naming the tests with a test prefix since this information is already contained in the class name. Moreover, starting the name with test leads often to inferior test names (see also the Stackoverflow discussion about naming).
-- Test only one thing per test: tests should be short and test only one small part of the method.
+We focused on testing the two main classes we created for this functionality: SpellCheckerDialog and the EntryEditorSpellChecker. We have about 8 cases that try to discover bugs in our code and guarantee a good functionality.
 ```  
     @Before
     public void setUp() throws Exception {
@@ -204,6 +201,73 @@ Imagine you want to test the method format(String value) in the class BracesForm
         Assert.assertArrayEquals(expectedValues, suggestedValues);
     }
 ```  
-#### D. Adding Comments
+#### D. Adding Comments  
+As you can see, we added comments to the class, methods and each of the lines inside of the methods.
+```  
+import com.swabunga.spell.engine.Word;
+import com.swabunga.spell.event.SpellChecker;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+/**
+ * Helps us implementing and using the Jazzy methods inside of the fields of the current Entry as we require
+ * Mainly focus on testing and implementing possible problems with the Jazzy Library
+ * Jazzy could also be replaced in this class by a different Spell Check Engine
+ */
+public class JazzySpellChecker implements SpellCheckAbstract {
+
+    private static final Log LOGGER = LogFactory.getLog(PreferencesDialog.class);
+    SpellDictionaryHashMap dictionary = null;
+    SpellChecker spellChecker = null;
+
+    public JazzySpellChecker() {
+        try {
+            // Buffer the dictionary
+            BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/english.0")));
+            // Load values for Dictionary from the internal Jazzy Jar
+            dictionary = new SpellDictionaryHashMap(reader);
+            // Create spell check object
+            spellChecker = new SpellChecker(dictionary);
+        } catch (IOException ioe) {
+            //Verify we are able to find the file of the dictionary
+            LOGGER.warn(ioe.getMessage(), ioe);
+        }
+    }
+
+    /**
+     * Method to perform the spell check over current fields of the Entry
+     * @param currentFields: map containing information from the Entry, the id of the field and the text written by the user on the entry
+     * @return List<SpellCheckerRecord> : LinkedList containing the words and the suggestions given by Jazzy
+     */
+
+    @Override
+    public List<SpellCheckerRecord> performSpellCheck(Map<String, String> currentFields) {
+        List<SpellCheckerRecord> allErrors = new ArrayList<>();
+        // Verify the fields have content
+        if (!currentFields.isEmpty()) {
+            // Iterate over current fields
+            for (Map.Entry<String, String> currentField : currentFields.entrySet()) {
+                // Divide the String into words
+                String[] arrayOfWords = currentField.getValue().split(" ");
+                if (arrayOfWords.length > 0) {
+                    // Iterate over the array of words we just created
+                    for (int i = 0; i < arrayOfWords.length; i++) {
+                        // Obtain the list of suggested replacements by the Jazzy lib (word, threshold)
+                        List<Word> possibleWords = spellChecker.getSuggestions(arrayOfWords[i], 1);
+                        // Verify the word is not present into the suggestions
+                        if ((possibleWords != null) && (possibleWords.size() > 0) && !wordIsInSuggestion(possibleWords, arrayOfWords[i])) {
+                            // Add word to a list to be processed as we require later on
+                            allErrors.add(new SpellCheckerRecord(currentField.getKey(), arrayOfWords[i], i, possibleWords));
+                        }
+                    }
+                }
+            }
+
+        }
+        return allErrors;
+    }
+
+}
+```  
 ### 8. Creating a Pull Request
 ### 9. Recording a Screen Cast
