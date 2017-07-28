@@ -32,11 +32,13 @@ Contains all the components being displayed while the application runs.
 * **EntryEditor**  
 Container that extends from JPanel and implements EntryContainer, this allows it to create the controls being used over the toolbar and the possible action over the entries
 * **SpellCheckerAction**  
-Inner class of EntryEditor that provides the functionality for the spell checking tool over the different fields of the entry.
+Inner class of EntryEditor that provides the functionality for the spell checking tool over the different fields of the entry.  
+
 ### 5. Implementing our contribution
-![Class Diagram](http://i.imgur.com/aTW308E.jpg)
+![Class Diagram](http://i.imgur.com/RW3E27Z.png)
 #### A. Define Structure
 We had to adapt our design to the way JabRef works and came up with the following classes:  
+* **SpellCheckAbstract:** Interface that allows alternative implementations for the spell check engine. 
 * **JazzySpellChecker:** Contains the needed methods to use the Jazzy libraries inside of JabRef and perform the spell check on the entries.  
 * **SpellCheckerDialog:** Dialog that helps performing the corrections task on the GUI of JabRef for each of the present Fields of the current entries.  
 * **SpellCheckerAction:** A class which extends from AbstracAction and help us add the needed option on the toolbar of the entries.  
