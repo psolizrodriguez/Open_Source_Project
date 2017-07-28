@@ -105,7 +105,8 @@ try {
 } catch (IOException ioe) {
     throw new JabRefException("Something went wrong...", 
          Localization.lang("Something went wrong...", ioe);
-}```  
+}
+```  
 - Never, ever throw and catch Exception or Throwable.  
 - Errors should only be logged when they are finally caught (i.e., logged only once). See Logging for details.  
 - If the Exception message is intended to be shown to the User in the UI (see below) provide also a localizedMessage (see JabRefException).  
@@ -124,7 +125,8 @@ try {
         }
     }
 ```  
-* **When adding a library**
+
+#### B. When adding a library
 Please try to use a version available at jCenter and add it to build.gradle. In any case, describe the library at external-libraries.txt. We need that information for our package maintainers (e.g., those of the debian package). Also add a txt file stating the license in libraries.
 ```  
 Id:      com.swabunga.spell
@@ -132,15 +134,19 @@ Project: Jazzy
 URL:     https://sourceforge.net/projects/jazzy/
 License: LGPL 2.0
 ```  
-```compile 'com.swabunga.spell:0.5.3```  
-* **When adding a new Localization.lang entry**
+```
+compile 'com.swabunga.spell:0.5.3
+```  
+#### B. When adding a new Localization.lang entry*
 Add new Localization.lang("KEY") to Java file. Tests fail. In the test output a snippet is generated which must be added to the English translation file. There is also a snippet generated for the non-English files, but this is irrelevant. Add snippet to English translation file located at src/main/resources/l10n/JabRef_en.properties With gradlew localizationUpdate the "KEY" is added to the other translation files as well. Tests are green again.
 ![Tests are green](http://i.imgur.com/j600qQM.png)
-* **Test Cases**
+
+#### C. Test Cases
 Imagine you want to test the method format(String value) in the class BracesFormatter which removes double braces in a given string.
 - Placing: all tests should be placed in a class named classTest, e.g. BracesFormatterTest.
 - Naming: the name should be descriptive enough to describe the whole test. Use the format methodUnderTest_ expectedBehavior_context (without the dashes). So for example formatRemovesDoubleBracesAtBeginning. Try to avoid naming the tests with a test prefix since this information is already contained in the class name. Moreover, starting the name with test leads often to inferior test names (see also the Stackoverflow discussion about naming).
 - Test only one thing per test: tests should be short and test only one small part of the method.
-* **Adding Comments**
+
+#### D. Adding Comments
 ### 8. Creating a Pull Request
 ### 9. Recording a Screen Cast
