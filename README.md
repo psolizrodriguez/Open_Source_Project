@@ -139,9 +139,42 @@ compile 'com.swabunga.spell:0.5.3
 ```  
 #### B. When adding a new Localization.lang entry*
 Add new Localization.lang("KEY") to Java file. Tests fail. In the test output a snippet is generated which must be added to the English translation file. There is also a snippet generated for the non-English files, but this is irrelevant. Add snippet to English translation file located at src/main/resources/l10n/JabRef_en.properties With gradlew localizationUpdate the "KEY" is added to the other translation files as well. Tests are green again.
-![Tests are green](http://i.imgur.com/j600qQM.png)
-
-#### C. Test Cases
+```  
+public SpellCheckerDialog(JFrame frame, BasePanel panel, BibEntry entry, List<SpellCheckerRecord> wordsToCheck) {
+        // This could also be replaced for a JabRefDialog type of object, this creates problems at the moment of performing test cases
+        super(frame);
+        this.wordsToCheck = wordsToCheck;
+        this.entry = entry;
+        this.panel = panel;
+        // Code for creating the Dialog
+        setTitle(Localization.lang("Entry_Fields_Spell_Check"));
+        setBounds(100, 100, 365, 262);
+        getContentPane().setLayout(new BorderLayout());
+        contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+        getContentPane().add(contentPanel, BorderLayout.CENTER);
+        contentPanel.setLayout(null);
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        JPanel buttonPane = new JPanel();
+        buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        getContentPane().add(buttonPane, BorderLayout.SOUTH);
+        // Label displaying the current field title
+        lblNewLabel = new JLabel(Localization.lang("Current_Field_Spell_Check"));
+        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+        lblNewLabel.setBounds(24, 81, 120, 16);
+        contentPanel.add(lblNewLabel);
+```  
+```  
+Spell_Check=Spell Check
+Entry_Fields_Spell_Check=Entry Fields Spell Checker
+Current_Field_Spell_Check=Current Field
+Misspelled_Word_Spell_Check=Misspelled Word
+Ignore_Spell_Check_Word=Ignore
+Replace_Spell_Check_Word=Replace
+Cancel_Spell_Check_Word=Cancel
+No_Errors_Spell_Check_Word=No Errors Found!
+```  
+#### C. Test Cases  
+![Tests are green](http://i.imgur.com/j600qQM.png)  
 Imagine you want to test the method format(String value) in the class BracesFormatter which removes double braces in a given string.
 - Placing: all tests should be placed in a class named classTest, e.g. BracesFormatterTest.
 - Naming: the name should be descriptive enough to describe the whole test. Use the format methodUnderTest_ expectedBehavior_context (without the dashes). So for example formatRemovesDoubleBracesAtBeginning. Try to avoid naming the tests with a test prefix since this information is already contained in the class name. Moreover, starting the name with test leads often to inferior test names (see also the Stackoverflow discussion about naming).
