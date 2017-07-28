@@ -99,7 +99,7 @@ Some of the aspects JabRef developers were suggesting at the [Code's how to](htt
 - All Exceptions we throw should be or extend JabRefException; This is especially important if the message stored in the Exception should be shown to the user. JabRefException has already implemented the getLocalizedMessage() method which should be used for such cases (see details below!).  
 - Catch and wrap all API exceptions (such as IOExceptions) and rethrow them.  
 Example:  
-```
+```  
 try {
     // ...
 } catch (IOException ioe) {
@@ -109,7 +109,7 @@ try {
 - Never, ever throw and catch Exception or Throwable.  
 - Errors should only be logged when they are finally caught (i.e., logged only once). See Logging for details.  
 - If the Exception message is intended to be shown to the User in the UI (see below) provide also a localizedMessage (see JabRefException).  
-```
+```  
     public JazzySpellChecker() {
         try {
             // Buffer the dictionary
@@ -126,7 +126,7 @@ try {
 ```  
 * **When adding a library**
 Please try to use a version available at jCenter and add it to build.gradle. In any case, describe the library at external-libraries.txt. We need that information for our package maintainers (e.g., those of the debian package). Also add a txt file stating the license in libraries.
-```
+```  
 Id:      com.swabunga.spell
 Project: Jazzy
 URL:     https://sourceforge.net/projects/jazzy/
