@@ -287,7 +287,7 @@ For this example, I decided to input the novel by Stephen King titled Misery. In
 For the sake of this example I skipped over a few fields to show how it handles a misspelled word. As you can see from the last image, the word "Misery" is spelled incorrectly in the text field with the spelling of "Mysery." The spell checker correctly identifies "Mysery" as a misspelled word and suggests the correct spelling of the word.  
 ![Imgur](http://i.imgur.com/4rmREhE.png)  
 Thank you very much for taking the time to review and consider our pull request. My teammate and I learned a lot about working with the open source community through the JabRef project. Any feedback or suggestions about our code or the new spell checking feature would be welcomed and greatly appreciated. For more information about the changes we made to the project you can visit this webpage:  
-link: <https://github.com/psolizrodriguez/Open_Source_Project>  
+[Spell Check for JabRef](https://github.com/psolizrodriguez/Open_Source_Project)  
 
 ### 9. Recording a Screen Cast
 
