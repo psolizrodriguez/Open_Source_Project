@@ -78,8 +78,67 @@ This JUnit Test Class takes care of testing the Jazzy correct initialization and
 As an example, you can see here we wanted to add the 1987 book by Stephen King titled Misery to our references manager. When we mispelled "mysery" the spell checker suggestion box identified that and suggested "misery" instead.
 
 ### 7. Applying Required Project Standards
-* **Reformatting**
-* **Applying Coding Standards**
+
+Some of the aspects JabRef developers were suggesting at the [Code's how to](https://github.com/JabRef/jabref/wiki/Code-Howtos) requires us to:  
+* try not to abbreviate names of variables, classes or methods
+* use lowerCamelCase instead of snake_case
+'''
+    private static final long serialVersionUID = 1L;
+    private final JPanel contentPanel = new JPanel();
+    JList<String> list;
+    JLabel misspelledWord;
+    JLabel localCurrentField;
+    List<SpellCheckerRecord> wordsToCheck;
+    int currentWord;
+    BasePanel panel;
+    BibEntry entry;
+    JLabel lblNewLabel;
+'''
+* **Throwing and Catching Exceptions**
+* All Exceptions we throw should be or extend JabRefException; This is especially important if the message stored in the Exception should be shown to the user. JabRefException has already implemented the getLocalizedMessage() method which should be used for such cases (see details below!).
+* Catch and wrap all API exceptions (such as IOExceptions) and rethrow them
+Example:
+'''
+try {
+    // ...
+} catch (IOException ioe) {
+    throw new JabRefException("Something went wrong...", 
+         Localization.lang("Something went wrong...", ioe);
+}'''
+* Never, ever throw and catch Exception or Throwable
+* Errors should only be logged when they are finally caught (i.e., logged only once). See Logging for details.
+* If the Exception message is intended to be shown to the User in the UI (see below) provide also a localizedMessage (see JabRefException).
+'''
+    public JazzySpellChecker() {
+        try {
+            // Buffer the dictionary
+            BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/english.0")));
+            // Load values for Dictionary from the internal Jazzy Jar
+            dictionary = new SpellDictionaryHashMap(reader);
+            // Create spell check object
+            spellChecker = new SpellChecker(dictionary);
+        } catch (IOException ioe) {
+            //Verify we are able to find the file of the dictionary
+            LOGGER.warn(ioe.getMessage(), ioe);
+        }
+    }
+'''
+* **When adding a library**
+Please try to use a version available at jCenter and add it to build.gradle. In any case, describe the library at external-libraries.txt. We need that information for our package maintainers (e.g., those of the debian package). Also add a txt file stating the license in libraries.
+'''
+Id:      com.swabunga.spell
+Project: Jazzy
+URL:     https://sourceforge.net/projects/jazzy/
+License: LGPL 2.0'''
+'''compile 'com.swabunga.spell:0.5.3''''
+* **When adding a new Localization.lang entry**
+Add new Localization.lang("KEY") to Java file. Tests fail. In the test output a snippet is generated which must be added to the English translation file. There is also a snippet generated for the non-English files, but this is irrelevant. Add snippet to English translation file located at src/main/resources/l10n/JabRef_en.properties With gradlew localizationUpdate the "KEY" is added to the other translation files as well. Tests are green again.
+![Tests are green](http://i.imgur.com/j600qQM.png)
+* **Test Cases**
+Imagine you want to test the method format(String value) in the class BracesFormatter which removes double braces in a given string.
+- Placing: all tests should be placed in a class named classTest, e.g. BracesFormatterTest.
+- Naming: the name should be descriptive enough to describe the whole test. Use the format methodUnderTest_ expectedBehavior_context (without the dashes). So for example formatRemovesDoubleBracesAtBeginning. Try to avoid naming the tests with a test prefix since this information is already contained in the class name. Moreover, starting the name with test leads often to inferior test names (see also the Stackoverflow discussion about naming).
+- Test only one thing per test: tests should be short and test only one small part of the method.
 * **Adding Comments**
 ### 8. Creating a Pull Request
 ### 9. Recording a Screen Cast
