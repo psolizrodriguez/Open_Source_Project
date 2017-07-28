@@ -122,15 +122,15 @@ try {
             LOGGER.warn(ioe.getMessage(), ioe);
         }
     }
-```
+```  
 * **When adding a library**
 Please try to use a version available at jCenter and add it to build.gradle. In any case, describe the library at external-libraries.txt. We need that information for our package maintainers (e.g., those of the debian package). Also add a txt file stating the license in libraries.
 ```
 Id:      com.swabunga.spell
 Project: Jazzy
 URL:     https://sourceforge.net/projects/jazzy/
-License: LGPL 2.0```
-```compile 'com.swabunga.spell:0.5.3```
+License: LGPL 2.0```  
+```compile 'com.swabunga.spell:0.5.3``  
 * **When adding a new Localization.lang entry**
 Add new Localization.lang("KEY") to Java file. Tests fail. In the test output a snippet is generated which must be added to the English translation file. There is also a snippet generated for the non-English files, but this is irrelevant. Add snippet to English translation file located at src/main/resources/l10n/JabRef_en.properties With gradlew localizationUpdate the "KEY" is added to the other translation files as well. Tests are green again.
 ![Tests are green](http://i.imgur.com/j600qQM.png)
