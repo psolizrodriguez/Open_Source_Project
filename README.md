@@ -94,7 +94,8 @@ Some of the aspects JabRef developers were suggesting at the [Code's how to](htt
     BibEntry entry;
     JLabel lblNewLabel;
 ```
-* **Throwing and Catching Exceptions**
+
+#### A. Throwing and Catching Exceptions
 - All Exceptions we throw should be or extend JabRefException; This is especially important if the message stored in the Exception should be shown to the user. JabRefException has already implemented the getLocalizedMessage() method which should be used for such cases (see details below!).  
 - Catch and wrap all API exceptions (such as IOExceptions) and rethrow them.  
 Example:  
@@ -104,7 +105,7 @@ try {
 } catch (IOException ioe) {
     throw new JabRefException("Something went wrong...", 
          Localization.lang("Something went wrong...", ioe);
-}```
+}```  
 - Never, ever throw and catch Exception or Throwable.  
 - Errors should only be logged when they are finally caught (i.e., logged only once). See Logging for details.  
 - If the Exception message is intended to be shown to the User in the UI (see below) provide also a localizedMessage (see JabRefException).  
@@ -130,7 +131,7 @@ Id:      com.swabunga.spell
 Project: Jazzy
 URL:     https://sourceforge.net/projects/jazzy/
 License: LGPL 2.0```  
-```compile 'com.swabunga.spell:0.5.3``  
+```compile 'com.swabunga.spell:0.5.3```
 * **When adding a new Localization.lang entry**
 Add new Localization.lang("KEY") to Java file. Tests fail. In the test output a snippet is generated which must be added to the English translation file. There is also a snippet generated for the non-English files, but this is irrelevant. Add snippet to English translation file located at src/main/resources/l10n/JabRef_en.properties With gradlew localizationUpdate the "KEY" is added to the other translation files as well. Tests are green again.
 ![Tests are green](http://i.imgur.com/j600qQM.png)
