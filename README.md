@@ -80,8 +80,8 @@ As an example, you can see here we wanted to add the 1987 book by Stephen King t
 ### 7. Applying Required Project Standards
 
 Some of the aspects JabRef developers were suggesting at the [Code's how to](https://github.com/JabRef/jabref/wiki/Code-Howtos) requires us to:  
-* try not to abbreviate names of variables, classes or methods
-* use lowerCamelCase instead of snake_case
+#### Try not to abbreviate names of variables, classes or methods
+#### Use lowerCamelCase instead of snake_case
 '''
     private static final long serialVersionUID = 1L;
     private final JPanel contentPanel = new JPanel();
